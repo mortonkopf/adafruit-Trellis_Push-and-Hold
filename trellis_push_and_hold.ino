@@ -17,9 +17,6 @@ Adafruit_TrellisSet trellis =  Adafruit_TrellisSet(&matrix0);
 
 unsigned long lastDebounceTime0=0,newDebounceTime0=0;
 
-int momentBut =16;//number of buttons that are momentary
-int latchBut =16;//number of buttons that are latching
-
 //===========variables for button states==============//
 int buttonState[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};     // current state of the button
 int lastButtonState[] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}; // previous state of the button
@@ -56,7 +53,7 @@ int latched[] ={
 
 void setup() {
   Serial.begin(31250);
-  Serial.println("Trellis Demo");
+  Serial.println("Trellis push and Hold buttons Demo");
 
   trellis.begin(0x71);//, 0x72);
   trellis.setBrightness(15);
@@ -89,7 +86,7 @@ void doTrellis(){
  // If a button was just pressed or released...
  if (trellis.readSwitches()) {
 
- for (uint8_t i=0; i<momentBut; i++) {
+ for (uint8_t i=0; i<numKeys; i++) {
   if (trellis.justPressed( momentary[i])) {// if it was pressed, turn it on
     trellis.setLED(momentary[i]);
 
@@ -139,7 +136,7 @@ void doTrellis(){
       
 //===== end of momentary check, now check if latch allocated buttons have been pressed ===>
 
-for (uint8_t i=0; i<latchBut; i++) {
+for (uint8_t i=0; i<numKeys; i++) {
     if (trellis.justPressed(latched[i])) {
     // Alternate the LED
     if (trellis.isLED(latched[i])){
@@ -157,7 +154,7 @@ for (uint8_t i=0; i<latchBut; i++) {
 //====all button checking done, now update the display with the results ==>
     
     trellis.writeDisplay();
-for(int i=0;i<16;i++){
+for(int i=0;i<numKeys;i++){
   lastButtonState[i] = buttonState[i];
 }
    }//end of readswitches
