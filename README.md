@@ -10,3 +10,6 @@ The momentary buttons will act on a short press (<400ms), medium press (>400 <15
 The ino also include a function to use pairs of buttons to create increases or decreases in a stored value. One button increases the value, the adjacent button decreases it.
 
 The ino also provides simple array tables the stores that variable values for the momentary and latching buttons, meaning that there are no hidden variables. this provides easy access for manipulation.
+
+
+https://youtu.be/7eBQW1JhsTw
