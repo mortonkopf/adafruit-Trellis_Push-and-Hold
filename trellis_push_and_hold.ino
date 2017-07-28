@@ -1,4 +1,4 @@
-*
+/*
  * use the trellis library set individual buttons to momentary or latching,
  * providing accessible arrays to hold variable for each button. Also provides
  * press and hold functionality for trellis buttons.
