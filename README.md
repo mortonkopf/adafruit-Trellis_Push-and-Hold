@@ -1,6 +1,8 @@
 # adafruit-Trellis_Push-and-Hold
 functions for the adafruit trellis converting buttons to push and hold = three options per button
 
+This ino converts the trellis loop example into a function that is called, and does away with the use of delay(), so freeing up the microcontroller time. Delay is only used in the setup button pattern at start-up.
+
 This ino file gives examples of creating push and hold buttons for the adafruit trellis button pad. With the functions you can set the time to create three options for when a button is pushed (or more if you extend the code). You can split the button pad between having some buttons as momentary push buttons and others on the same trellis as bting latching On/Off. 
 
 The momentary buttons will act on a short press (<400ms), medium press (>400 <1500ms) and long press (>1500ms). Each of the press types will give access to a function that is associates with the button. That means three functions per momentary button. The led lights up as long as the button is held.
