@@ -1,4 +1,4 @@
-/*
+*
  * use the trellis library set individual buttons to momentary or latching,
  * providing accessible arrays to hold variable for each button. Also provides
  * press and hold functionality for trellis buttons.
@@ -53,9 +53,9 @@ int latched[] ={
 
 void setup() {
   Serial.begin(31250);
-  Serial.println("Trellis push and Hold buttons Demo");
+  Serial.println("Trellis Demo");
 
-  trellis.begin(0x71);//, 0x72);
+  trellis.begin(0x71);
   trellis.setBrightness(15);
   // light up all the LEDs in order
   for (uint8_t i=0; i<numKeys; i++) {
@@ -130,7 +130,7 @@ void doTrellis(){
     for(int bottom=0;bottom<16;bottom++){
       if(trellisMomentValue[bottom] <= 1){ trellisMomentValue[bottom] = 1;} 
       }      
-    for(int top=0;top<16;top++){ //constrain the variable to below 11
+    for(int top=0;top<16;top++){ //constrain the variable
       if(trellisMomentValue[top] >= 9){ trellisMomentValue[top] = 9;} 
       }
       
