@@ -53,7 +53,7 @@ int latched[] ={
 
 void setup() {
   Serial.begin(31250);
-  Serial.println("Trellis Demo");
+  Serial.println("Trellis push and hold buttons Demo");
 
   trellis.begin(0x71);
   trellis.setBrightness(15);
